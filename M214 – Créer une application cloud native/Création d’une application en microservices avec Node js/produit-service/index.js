@@ -27,7 +27,7 @@ app.post("/produit/ajouter", (req, res, next) => {
     .then((produit) => res.status(201).json(produit))
     .catch((error) => res.status(400).json({ error }));
 });
-app.post("/produit/acheter", (req, res, next) => {
+app.post("/produit/afficher", (req, res, next) => {
   const { ids } = req.body;
   console.log(ids);
   Produit.find({ _id: { $in: ids } })

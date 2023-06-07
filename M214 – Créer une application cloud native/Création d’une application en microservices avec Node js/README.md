@@ -74,7 +74,7 @@ Une fois connecté, vous pouvez effectuer d'autres tâches en envoyant des requ�
 }
 ```
 
-- Pour acheter des produits, envoyez une requête POST à l'adresse suivante : `http://localhost:4000/produit/acheter`. Assurez-vous d'inclure le jeton d'authentification dans l'en-tête de la requête. Dans le corps de la requête, incluez les identifiants des produits que vous souhaitez acheter:
+- Pour afficher des produits, envoyez une requête POST à l'adresse suivante : `http://localhost:4000/produit/afficher`. Assurez-vous d'inclure le jeton d'authentification dans l'en-tête de la requête. Dans le corps de la requête, incluez les identifiants des produits que vous souhaitez afficher:
   ```json
   {
     "ids": [

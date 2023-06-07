@@ -28,7 +28,7 @@ function prixTotal(produits) {
 
 async function httpRequest(ids) {
   try {
-    const URL = "http://localhost:4000/produit/acheter";
+    const URL = "http://localhost:4000/produit/afficher";
     // put the ids in the body of the request
     const response = await axios.post(URL, { ids });
     console.log(response.data);
