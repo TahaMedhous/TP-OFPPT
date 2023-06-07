@@ -1,4 +1,4 @@
-# Projet avec trois dossiers
+# Création d’une application en microservices avec Node js
 
 Ce projet est composé de trois dossiers, chacun contenant une partie de l'application. Pour démarrer le projet, vous devez effectuer les étapes suivantes :
 
