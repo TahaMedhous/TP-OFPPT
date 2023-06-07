@@ -30,3 +30,69 @@ Si vous rencontrez des problèmes lors du démarrage des serveurs, veuillez vous
 
 - Assurez-vous d'avoir MongoDB et Nodejs installés correctement sur votre machine.
 - Vérifiez que les ports nécessaires pour chaque serveur sont disponibles et non utilisés par d'autres applications _(4000, 4001 et 4002 et 27017 pour MongoDB)_.
+
+## Inscription
+
+- Pour vous inscrire, utilisez Postman ou tout autre outil similaire pour envoyer une requête POST à l'adresse suivante : `http://localhost:4002/auth/register`. Incluez le corps de la requête avec les informations suivantes :
+
+```json
+{
+  "nom": "Taha",
+  "email": "taha@gmail.com",
+  "mot_passe": "12345678"
+}
+```
+
+- Pour vous connecter, utilisez à nouveau Postman ou un outil similaire pour envoyer une requête POST à l'adresse suivante : `http://localhost:4002/auth/login`. Incluez le corps de la requête avec les informations suivantes :
+
+```json
+{
+  "email": "taha@gmail.com",
+  "mot_passe": "12345678"
+}
+```
+
+Vous recevrez un jeton d'authentification (Bearer token) dans la réponse. **_Assurez-vous de le conserver car il sera utilisé pour les autres opérations._**
+
+## Effectuer des tâches
+
+Une fois connecté, vous pouvez effectuer d'autres tâches en envoyant des requêtes aux adresses appropriées en utilisant le jeton d'authentification reçu.
+
+- Pour ajouter un produit, envoyez une requête POST à l'adresse suivante : `http://localhost:4000/produit/ajouter`. Assurez-vous d'inclure le jeton d'authentification dans l'en-tête de la requête avec le format suivant :
+
+  `Authorization: Bearer <token>`
+
+  Remplacez `<token>` par le jeton d'authentification reçu lors de la connexion.
+
+  Vous devrez également inclure les informations nécessaires dans le corps de la requête, telles que le nom, la description et le prix du produit:
+
+```json
+{
+  "nom": "Produit 1",
+  "description": "Description du produit 1",
+  "prix": 100
+}
+```
+
+- Pour acheter des produits, envoyez une requête POST à l'adresse suivante : `http://localhost:4000/produit/acheter`. Assurez-vous d'inclure le jeton d'authentification dans l'en-tête de la requête. Dans le corps de la requête, incluez les identifiants des produits que vous souhaitez acheter:
+  ```json
+  {
+    "ids": [
+      "L'identifiant du produit 1 dans MongoDB",
+      "L'identifiant du produit 2 dans MongoDB"
+    ]
+  }
+  ```
+- Pour ajouter une commande, envoyez une requête POST à l'adresse suivante : `http://localhost:4001/commande/ajouter`. Assurez-vous d'inclure le jeton d'authentification dans l'en-tête de la requête. Dans le corps de la requête, incluez les identifiants des produits:
+  ```json
+  {
+    "ids": [
+      "L'identifiant du produit 1 dans MongoDB",
+      "L'identifiant du produit 2 dans MongoDB"
+    ]
+  }
+  ```
+
+---
+
+_Note :_ Assurez-vous d'avoir les serveurs en cours d'exécution et de respecter les bonnes adresses et méthodes HTTP pour chaque tâche. Utilisez Postman ou un outil similaire pour envoyer les requêtes de manière pratique et visualiser les réponses.
