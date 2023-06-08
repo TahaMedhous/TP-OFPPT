@@ -4,7 +4,8 @@ Ce projet est composé de trois dossiers, chacun contenant une partie de l'appli
 
 ## Installation des dépendances
 
-1.  Naviguez vers le premier dossier en utilisant la commande suivante :
+1.  assurez-vous que nodemon est installé globalement en exécutant `nodemon -v` dans le terminal, s'il n'est pas installé, vous pouvez l'obtenir en exécutant la commande suivante sur votre terminal `npm install -g nodemon`
+2.  Naviguez vers le premier dossier en utilisant la commande suivante :
 
     `cd auth-service`
 
